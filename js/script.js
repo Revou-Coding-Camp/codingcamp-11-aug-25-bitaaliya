@@ -56,19 +56,45 @@ const $$ = (s, p=document) => [...p.querySelectorAll(s)];
 })();
 
 (() => {
+  const KEY   = "nds_username";
   const nameSpan = $("#username");
-  if (!nameSpan) return;
+  const modal = $("#nameModal");
+  const form  = $("#nameForm");
+  const input = $("#nameInput");
+  const skip  = $("#skipName");
 
-  const KEY = "nds_username";
-  const store = window.sessionStorage;
+  if (!nameSpan || !modal || !form || !input || !skip) return;
 
-  let userName = store.getItem(KEY);
-  if (!userName){
-    userName = window.prompt("Hai! Masukkan nama Anda untuk sapaan di Home:", "") || "Guest";
-    userName = userName.trim() || "Guest";
-    store.setItem(KEY, userName);
+  const applyName = (val) => {
+    const finalName = (val || "").trim();
+    const name = finalName.length >= 2 ? finalName : "Guest";
+    localStorage.setItem(KEY, name);
+    nameSpan.textContent = name;
+  };
+
+  const saved = (localStorage.getItem(KEY) || "").trim();
+  if (saved) {
+    nameSpan.textContent = saved;
+    modal.setAttribute("hidden", "");
+    document.body.classList.remove("modal-open");
+  } else {
+    modal.removeAttribute("hidden");
+    document.body.classList.add("modal-open");
+    setTimeout(() => input.focus(), 50);
   }
-  nameSpan.textContent = userName;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    applyName(input.value);
+    modal.setAttribute("hidden", "");
+    document.body.classList.remove("modal-open");
+  });
+
+  skip.addEventListener("click", () => {
+    applyName("Guest");
+    modal.setAttribute("hidden", "");
+    document.body.classList.remove("modal-open");
+  });
 })();
 
 (() => {
@@ -136,10 +162,11 @@ const $$ = (s, p=document) => [...p.querySelectorAll(s)];
       <div class="result-item"><b>Pesan</b>: ${escapeHtml(message.value.trim())}</div>
     `;
 
-    sessionStorage.setItem("nds_username", nameField.value.trim());
-
+    const finalName = (nameField.value || "").trim();
+    const name = finalName.length >= 2 ? finalName : "Guest";
+    try { localStorage.setItem("nds_username", name); } catch(_) {}
     const hello = $("#username");
-    if (hello) hello.textContent = nameField.value.trim();
+    if (hello) hello.textContent = name;
 
     form.reset();
   });

@@ -220,6 +220,21 @@
     </div>
   </footer>
 
-  <script src="js/script.js"></script>
+<div id="nameModal" hidden class="modal-backdrop">
+  <div class="modal">
+    <h3>Selamat datang!</h3>
+    <p>Masukkan nama Anda agar kami bisa menyapa di halaman Home.</p>
+    <form id="nameForm">
+      <input id="nameInput" type="text" placeholder="Nama Anda" required />
+      <div class="modal-actions">
+        <button class="btn primary" type="submit">Simpan</button>
+        <button class="btn ghost" type="button" id="skipName">Lewati</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+
 </body>
 </html>
