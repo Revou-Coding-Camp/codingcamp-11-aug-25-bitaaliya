@@ -55,10 +55,9 @@ const $$ = (s, p=document) => [...p.querySelectorAll(s)];
   sections.forEach(sec => observer.observe(sec));
 })();
 
-// ==== NAME MODAL (per sesi/tab) ====
 (() => {
   const KEY   = "nds_username";
-  const store = sessionStorage; // ← hanya berlaku untuk sesi/tab aktif
+  const store = sessionStorage; 
   const nameSpan = $("#username");
   const modal = $("#nameModal");
   const form  = $("#nameForm");
@@ -87,19 +86,18 @@ const $$ = (s, p=document) => [...p.querySelectorAll(s)];
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    applyName(input.value, /* persist */ true);   // simpan untuk sesi ini
+    applyName(input.value, /* persist */ true); 
     modal.setAttribute("hidden", "");
     document.body.classList.remove("modal-open");
   });
 
   skip.addEventListener("click", () => {
-    applyName("Guest", /* persist */ false);      // JANGAN simpan saat Lewati
+    applyName("Guest", /* persist */ false);     
     modal.setAttribute("hidden", "");
     document.body.classList.remove("modal-open");
   });
 })();
 
-// ==== CONTACT FORM ====
 (() => {
   const form = $("#contactForm");
   if (!form) return;
@@ -165,7 +163,6 @@ const $$ = (s, p=document) => [...p.querySelectorAll(s)];
       <div class="result-item"><b>Pesan</b>: ${escapeHtml(message.value.trim())}</div>
     `;
 
-    // Opsional: update sapaan untuk sesi AKTIF saja
     const finalName = (nameField.value || "").trim();
     const name = finalName.length >= 2 ? finalName : "Guest";
     try { sessionStorage.setItem("nds_username", name); } catch(_) {}
