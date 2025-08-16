@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nusantara Digital Solutions — Company Profile</title>
+  <meta name="description" content="Perusahaan teknologi Indonesia: profil, portofolio, dan formulir pesan. Single-page website responsif dengan validasi JavaScript."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="#home">
+        <span class="brand-logo">NDS</span>
+        <span class="brand-name">Nusantara Digital Solutions</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="navMenu">
+        <a class="nav-link active" href="#home" data-scroll>Home</a>
+        <a class="nav-link" href="#profile" data-scroll>Our Profile</a>
+        <a class="nav-link" href="#portfolio" data-scroll>Portfolio</a>
+        <a class="nav-link" href="#message" data-scroll>Message Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <p class="eyebrow">Selamat Datang</p>
+        <h1 class="hero-title">Hi <span id="username">Guest</span>, Welcome To Website</h1>
+        <p class="hero-subtitle">
+          Ini adalah website profil perusahaan nusantara digital solutions.
+          Jelajahi profil, lihat contoh portofolio, dan kirim pesan ke kami.
+        </p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#profile" data-scroll>Lihat Profil</a>
+          <a class="btn ghost" href="#message" data-scroll>Kirim Pesan</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=1200&auto=format&fit=crop" 
+             alt="Banner tim sedang berdiskusi" loading="lazy"/>
+      </div>
+    </div>
+  </section>
+
+  <section id="profile" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Our Profile</h2>
+
+      <div class="banner mini">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1920&auto=format&fit=crop" 
+             alt="Banner kantor modern"/>
+        <div class="banner-overlay compact">
+          <p>Membangun produk digital berdampak untuk Indonesia.</p>
+        </div>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <h3>Tentang Perusahaan</h3>
+          <p>
+            <b>Nusantara Digital Solutions (NDS)</b> adalah perusahaan teknologi Indonesia 
+            yang berfokus pada pengembangan <i>web & mobile apps</i>, integrasi data, dan modernisasi cloud.
+            Kami mendampingi klien UKM hingga enterprise untuk merilis solusi digital yang aman, cepat,
+            dan memiliki pengalaman pengguna yang unggul.
+          </p>
+          <ul class="checklist">
+            <li>Product & Engineering (React/Next.js, Node.js, Kotlin, Swift)</li>
+            <li>Data & Analytics (ETL, Dashboard, insight ML dasar)</li>
+            <li>Cloud & DevOps (CI/CD, Container, Monitoring)</li>
+            <li>UI/UX Design & Design System konsisten (HIG mindset)</li>
+          </ul>
+        </div>
+
+        <div class="about-card">
+          <div class="stat">
+            <h3>50+</h3><p>Projects delivered</p>
+          </div>
+          <div class="stat">
+            <h3>20</h3><p>Engineers & Designers</p>
+          </div>
+          <div class="stat">
+            <h3>3</h3><p>HQ (JKT/BDG/SBY)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="vm-grid" style="margin-top:18px">
+        <div class="card vm">
+          <h3>Vision</h3>
+          <p>
+            Menjadi mitra teknologi paling dipercaya di Indonesia yang mendorong pertumbuhan bisnis
+            lewat produk digital yang fungsional, elegan, dan berkelanjutan.
+          </p>
+        </div>
+        <div class="card vm">
+          <h3>Mission</h3>
+          <ul class="ordered">
+            <li>Mendesain pengalaman pengguna yang intuitif dan inklusif.</li>
+            <li>Mengembangkan software berkualitas tinggi dengan standar keamanan yang kuat.</li>
+            <li>Mengakselerasi adopsi cloud & otomatisasi untuk efisiensi.</li>
+            <li>Berinvestasi pada talenta lokal dan budaya belajar berkelanjutan.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="values">
+        <h3>Core Values</h3>
+        <div class="pill-group">
+          <span class="pill">Customer-obsessed</span>
+          <span class="pill">Craftsmanship</span>
+          <span class="pill">Integrity</span>
+          <span class="pill">Impact-driven</span>
+          <span class="pill">Growth mindset</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="section">
+    <div class="container">
+      <h2 class="section-title">Portfolio</h2>
+
+      <div class="pf-grid">
+        <article class="pf-card">
+          <div class="pf-thumb">
+            <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1200&auto=format&fit=crop" alt="E-Commerce Platform"/>
+          </div>
+          <div class="pf-body">
+            <h3>E-Commerce Platform</h3>
+            <p class="muted">Headless commerce dengan Next.js + Node, pembayaran terintegrasi, caching cerdas, dan dashboard analytics.</p>
+          </div>
+        </article>
+
+        <article class="pf-card">
+          <div class="pf-thumb">
+            <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1200&auto=format&fit=crop" alt="Mobile Banking Lite"/>
+          </div>
+          <div class="pf-body">
+            <h3>Mobile Banking Lite</h3>
+            <p class="muted">Aplikasi iOS/Android ringan dengan autentikasi biometrik, enkripsi di device, dan observability real-time.</p>
+          </div>
+        </article>
+
+        <article class="pf-card">
+          <div class="pf-thumb">
+            <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1200&auto=format&fit=crop" alt="Data Analytics Suite"/>
+          </div>
+          <div class="pf-body">
+            <h3>Data Analytics Suite</h3>
+            <p class="muted">Pipeline ETL ke warehouse + dashboard KPI interaktif untuk tim manajemen dan operasional.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="message" class="section section-alt">
+    <div class="container message-grid">
+      <div class="form-area">
+        <h2 class="section-title">Message Us</h2>
+
+        <form id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="name">Nama</label>
+            <input type="text" id="name" name="name" placeholder="Nama lengkap"/>
+            <small class="error" id="err-name"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Alamat Email</label>
+            <input type="email" id="email" name="email" placeholder="nama@email.com"/>
+            <small class="error" id="err-email"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Nomor Telepon</label>
+            <input type="tel" id="phone" name="phone" placeholder="08xxxxxxxxxx"/>
+            <small class="error" id="err-phone"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="messageText">Pesan</label>
+            <textarea id="messageText" name="messageText" rows="4" placeholder="Tulis pertanyaan/keperluan Anda di sini..."></textarea>
+            <small class="error" id="err-message"></small>
+          </div>
+
+          <button type="submit" class="btn primary full">Submit</button>
+        </form>
+      </div>
+
+      <aside class="result-area">
+        <div class="card">
+          <h3>Hasil Submit</h3>
+          <p class="muted">Nilai dari formulir akan tampil di sini setelah tombol <b>Submit</b> diklik.</p>
+          <div class="result" id="resultBox" aria-live="polite"></div>
+          <hr/>
+          <div class="meta">
+            <div>Current time: <span id="currentTime">-</span></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Nusantara Digital Solutions •</p>
+      <p class="credit">Created for learning — bita aliya</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+
+<div id="nameModal" class="modal" hidden>
+  <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <h3 id="modalTitle">Halo! Siapa nama Anda?</h3>
+    <p class="muted" style="margin-top:4px">Nama ini dipakai untuk sapaan di halaman Home.</p>
+
+    <form id="nameForm" class="modal-form">
+      <input type="text" id="nameInput" placeholder="Masukkan nama..." autocomplete="off" />
+      <div class="modal-actions">
+        <button type="submit" class="btn primary">Simpan</button>
+        <button type="button" class="btn ghost" id="nameCancel">Lewati</button>
+      </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>
