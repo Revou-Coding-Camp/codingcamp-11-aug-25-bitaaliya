@@ -55,8 +55,10 @@ const $$ = (s, p=document) => [...p.querySelectorAll(s)];
   sections.forEach(sec => observer.observe(sec));
 })();
 
+// ==== NAME MODAL (per sesi/tab) ====
 (() => {
   const KEY   = "nds_username";
+  const store = sessionStorage; // ← hanya berlaku untuk sesi/tab aktif
   const nameSpan = $("#username");
   const modal = $("#nameModal");
   const form  = $("#nameForm");
@@ -65,14 +67,14 @@ const $$ = (s, p=document) => [...p.querySelectorAll(s)];
 
   if (!nameSpan || !modal || !form || !input || !skip) return;
 
-  const applyName = (val) => {
+  const applyName = (val, persist = true) => {
     const finalName = (val || "").trim();
     const name = finalName.length >= 2 ? finalName : "Guest";
-    localStorage.setItem(KEY, name);
+    if (persist) { try { store.setItem(KEY, name); } catch(_) {} }
     nameSpan.textContent = name;
   };
 
-  const saved = (localStorage.getItem(KEY) || "").trim();
+  const saved = (store.getItem(KEY) || "").trim();
   if (saved) {
     nameSpan.textContent = saved;
     modal.setAttribute("hidden", "");
@@ -85,18 +87,19 @@ const $$ = (s, p=document) => [...p.querySelectorAll(s)];
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    applyName(input.value);
+    applyName(input.value, /* persist */ true);   // simpan untuk sesi ini
     modal.setAttribute("hidden", "");
     document.body.classList.remove("modal-open");
   });
 
   skip.addEventListener("click", () => {
-    applyName("Guest");
+    applyName("Guest", /* persist */ false);      // JANGAN simpan saat Lewati
     modal.setAttribute("hidden", "");
     document.body.classList.remove("modal-open");
   });
 })();
 
+// ==== CONTACT FORM ====
 (() => {
   const form = $("#contactForm");
   if (!form) return;
@@ -162,9 +165,10 @@ const $$ = (s, p=document) => [...p.querySelectorAll(s)];
       <div class="result-item"><b>Pesan</b>: ${escapeHtml(message.value.trim())}</div>
     `;
 
+    // Opsional: update sapaan untuk sesi AKTIF saja
     const finalName = (nameField.value || "").trim();
     const name = finalName.length >= 2 ? finalName : "Guest";
-    try { localStorage.setItem("nds_username", name); } catch(_) {}
+    try { sessionStorage.setItem("nds_username", name); } catch(_) {}
     const hello = $("#username");
     if (hello) hello.textContent = name;
 
